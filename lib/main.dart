@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'views/screens/home_view.dart';
+import 'views/screens/Artical_details.dart';
 
 void main() {
   runApp(NewsApp());
@@ -15,6 +16,12 @@ class NewsApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => Home(),
+        "ArticalDetails": (context) => ArticalDetails(
+              newsImageUrl: "",
+              newsTitle: "",
+              newsCategory: "",
+              content: "",
+            ),
       },
     );
   }
