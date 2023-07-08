@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 
-import '../screens/Artical_details.dart';
+import '../screens/artical_details_view.dart';
 
 class VerticalCard extends StatelessWidget {
-  VerticalCard({
-    required this.newsCategory,
-    required this.newsImageUrl,
-    required this.newsTitle,
-    required this.time,
-    required this.content,
-  });
+  VerticalCard(
+      {required this.newsCategory,
+      required this.newsImageUrl,
+      required this.newsTitle,
+      required this.time,
+      required this.content,
+      required this.source});
+
   String newsImageUrl;
   String newsTitle;
   String newsCategory;
   String time;
   String content;
+  String source;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,8 @@ class VerticalCard extends StatelessWidget {
               newsTitle: newsTitle,
               newsCategory: newsCategory,
               content: content,
+              source: source,
+              time: time,
             ),
           ),
         );
@@ -44,13 +48,16 @@ class VerticalCard extends StatelessWidget {
         child: Container(
           color: Colors.white,
           child: Padding(
-            padding: const EdgeInsets.only(left: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Row(
               children: [
-                Image(
-                  image: NetworkImage(newsImageUrl),
-                  height: 80,
-                  width: 80,
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(30.0),
+                  child: Image(
+                    image: NetworkImage(newsImageUrl),
+                    height: 120,
+                    width: 100,
+                  ),
                 ),
                 SizedBox(
                   width: 20,
@@ -63,7 +70,10 @@ class VerticalCard extends StatelessWidget {
                     children: [
                       Text(
                         newsCategory,
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(
@@ -71,7 +81,7 @@ class VerticalCard extends StatelessWidget {
                       ),
                       Text(
                         newsTitle,
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Colors.black, fontSize: 14),
                         textAlign: TextAlign.left,
                         softWrap: true,
                       ),
@@ -90,7 +100,10 @@ class VerticalCard extends StatelessWidget {
                           ),
                           Text(
                             time,
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
                             textAlign: TextAlign.left,
                           ),
                         ],

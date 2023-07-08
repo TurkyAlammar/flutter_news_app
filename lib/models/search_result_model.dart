@@ -1,7 +1,7 @@
 import 'package:intl/intl.dart';
 
-class HomeModel {
-  HomeModel(
+class SearchRuesltModel {
+  SearchRuesltModel(
       {this.newsImageUrl,
       this.newsTitle,
       this.publishedTime,
@@ -13,7 +13,7 @@ class HomeModel {
   String? content;
   String? source;
 
-  HomeModel.fromJson(Map<String, dynamic> json) {
+  SearchRuesltModel.fromJson(Map<String, dynamic> json) {
     newsImageUrl = json['urlToImage'];
     newsTitle = json['title'];
     publishedTime = json['publishedAt'];
@@ -35,7 +35,7 @@ class HomeModel {
   String page_current_time =
       "Today, " + DateFormat("MMMM, dd").format(DateTime.now()) + "rd";
   //String category = "all";
-  String tranding_news_title = "Tranding";
+  String Ruselt_title = "Results";
   String latest_news_title = "Latest";
 
   List<String> categories = [

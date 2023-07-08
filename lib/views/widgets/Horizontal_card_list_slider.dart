@@ -17,6 +17,8 @@ class HorizontalCardListSlider extends StatelessWidget {
           newsTitle: trendingNews[i]["newsTitle"].toString(),
           newsCategory: trendingNews[i]["newsCategory"].toString(),
           content: trendingNews[i]["content"].toString(),
+          source: trendingNews[i]["source"].toString(),
+          time: trendingNews[i]["time"].toString(),
         ));
       }
       return horizontalCards;

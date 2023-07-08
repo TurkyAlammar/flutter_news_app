@@ -7,7 +7,8 @@ class heading_widget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       label,
-      style: TextStyle(color: Colors.black),
+      style: TextStyle(
+          color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
       textAlign: TextAlign.left,
     );
   }

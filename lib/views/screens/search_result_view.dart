@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/views/screens/search_result_view.dart';
-import '../widgets/heading_widget.dart';
-import '../widgets/Vertical_card_list_slider.dart';
-import '../widgets/Horizontal_card_list_slider.dart';
-import '../widgets/Categories_button_list_slider.dart';
-import '../../view_models/home_view_model.dart';
-import 'favorite_article_view.dart';
 
-class Home extends StatefulWidget {
-  Home({required this.category});
+import '../../view_models/search_result_view_model.dart';
+import '../widgets/Vertical_card_list_slider.dart';
+import '../widgets/heading_widget.dart';
+
+class SearchResult extends StatefulWidget {
+  SearchResult({required this.category, required this.SearchText});
 
   String category;
+  String SearchText;
   @override
-  State<Home> createState() => _HomeState(category: category);
+  State<SearchResult> createState() =>
+      _SearchResultState(category: category, SearchText: SearchText);
 }
 
-class _HomeState extends State<Home> {
-  _HomeState({required this.category});
+class _SearchResultState extends State<SearchResult> {
+  _SearchResultState({required this.category, required this.SearchText});
   String category;
-  var Home_View_Model = HomeViewModel();
+  String SearchText;
+
+  var Search_View_Model = SearchRuesltViewModel();
   bool isLoaded = false;
   TextEditingController _textEditingController = TextEditingController();
   //late Map<String, dynamic> post;
@@ -30,15 +31,15 @@ class _HomeState extends State<Home> {
   }
 
   void getData() async {
-    await Home_View_Model.getListOfLatestNewsCards(category);
-    if (Home_View_Model.getListOfLatestNewsCards(category) != null) {
+    await Search_View_Model.getSearchResult(category, SearchText);
+    if (Search_View_Model.getSearchResult(category, SearchText) != null) {
       setState(() {
         isLoaded = true;
       });
     }
   }
 
-  int selected_item = 0;
+  int selected_item = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +48,12 @@ class _HomeState extends State<Home> {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          iconTheme: IconThemeData(
+            color: Colors.black, //change your color here
+          ),
+        ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: selected_item,
           unselectedLabelStyle:
@@ -77,21 +84,6 @@ class _HomeState extends State<Home> {
               selected_item = i;
               print("selected_item$i");
             });
-            if (selected_item == 0) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Home(category: category),
-                ),
-              );
-            } else if (selected_item == 2) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FavoriteArticle(),
-                ),
-              );
-            }
           },
         ),
         body: Visibility(
@@ -108,21 +100,6 @@ class _HomeState extends State<Home> {
                 children: [
                   SizedBox(
                     height: 10,
-                  ),
-                  Text(
-                    Home_View_Model.home_model.page_title,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    Home_View_Model.home_model.page_current_time,
-                    style: TextStyle(color: Colors.black, fontSize: 15),
-                    textAlign: TextAlign.left,
-                  ),
-                  SizedBox(
-                    height: 30,
                   ),
                   SearchBar(
                     backgroundColor: MaterialStateProperty.all(Colors.grey[50]),
@@ -143,7 +120,7 @@ class _HomeState extends State<Home> {
                       },
                     ),
                     elevation: MaterialStateProperty.all(0.0),
-                    hintText: "Search on Everything...",
+                    hintText: SearchText,
                     hintStyle: MaterialStateProperty.all(
                       const TextStyle(color: Colors.grey),
                     ),
@@ -152,33 +129,21 @@ class _HomeState extends State<Home> {
                   SizedBox(
                     height: 30,
                   ),
-                  CategoriesButtonListSlider(
-                    categories: Home_View_Model.home_model.categories,
-                    current_category: category,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      heading_widget(
+                        label: Search_View_Model.SearchModel.Ruselt_title,
+                      ),
+                      Text(
+                          "${Search_View_Model.SearchNewsCard.length} articles found")
+                    ],
                   ),
                   SizedBox(
-                    height: 30,
-                  ),
-                  heading_widget(
-                      label: Home_View_Model.home_model.tranding_news_title),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  HorizontalCardListSlider(
-                    trendingNews: Home_View_Model.latestNewsCards,
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  heading_widget(
-                      label: Home_View_Model.home_model.latest_news_title),
-                  SizedBox(
-                    height: 30,
+                    height: 10,
                   ),
                   VerticalCardListSlider(
-                    latestNews: Home_View_Model.latestNewsCards,
-                    page: "homePage",
-                  ),
+                      latestNews: Search_View_Model.SearchNewsCard),
                   ButtonBar()
                 ],
               ),

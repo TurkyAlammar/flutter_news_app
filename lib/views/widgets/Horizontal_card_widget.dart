@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
-import '../screens/Artical_details.dart';
+import '../screens/artical_details_view.dart';
 
 class HorizontalCard extends StatelessWidget {
   HorizontalCard(
       {required this.newsCategory,
       required this.newsImageUrl,
       required this.newsTitle,
-      required this.content});
+      required this.content,
+      required this.source,
+      required this.time});
   String newsImageUrl;
   String newsTitle;
   String newsCategory;
   String content;
-
+  String source;
+  String time;
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
@@ -20,10 +23,13 @@ class HorizontalCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => ArticalDetails(
-                newsImageUrl: newsImageUrl,
-                newsTitle: newsTitle,
-                newsCategory: newsCategory,
-                content: content,),
+              newsImageUrl: newsImageUrl,
+              newsTitle: newsTitle,
+              newsCategory: newsCategory,
+              content: content,
+              source: source,
+              time: time,
+            ),
           ),
         );
       },
@@ -38,15 +44,20 @@ class HorizontalCard extends StatelessWidget {
         ),
         child: Container(
           color: Colors.white,
-          width: 271,
-          height: 278,
+          width: 250,
+          height: 280,
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image(
-                  image: NetworkImage(newsImageUrl),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(30.0),
+                  child: Image(
+                    image: NetworkImage(newsImageUrl),
+                    height: 120,
+                    width: double.infinity,
+                  ),
                 ),
                 SizedBox(
                   height: 10,
@@ -61,7 +72,10 @@ class HorizontalCard extends StatelessWidget {
                 ),
                 Text(
                   newsCategory,
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
                   textAlign: TextAlign.left,
                 ),
               ],
