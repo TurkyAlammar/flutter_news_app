@@ -45,23 +45,12 @@ class VerticalCard extends StatelessWidget {
             width: 1,
           ),
         ),
-        child: Container(
-          color: Colors.white,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        child: Padding(
+          padding: EdgeInsets.all(10),
+          child: Container(
+            color: Colors.white,
             child: Row(
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(30.0),
-                  child: Image(
-                    image: NetworkImage(newsImageUrl),
-                    height: 120,
-                    width: 100,
-                  ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
                 Container(
                   width: 220,
                   child: Column(
@@ -70,10 +59,7 @@ class VerticalCard extends StatelessWidget {
                     children: [
                       Text(
                         newsCategory,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
+                        style: TextStyle(color: Colors.grey, fontSize: 13),
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(
@@ -81,7 +67,11 @@ class VerticalCard extends StatelessWidget {
                       ),
                       Text(
                         newsTitle,
-                        style: TextStyle(color: Colors.black, fontSize: 14),
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            height: 1.2),
                         textAlign: TextAlign.left,
                         softWrap: true,
                       ),
@@ -92,25 +82,37 @@ class VerticalCard extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.access_alarm,
-                            color: Colors.black,
-                            size: 20.0,
+                            color: Colors.grey,
+                            size: 14.0,
                           ),
                           SizedBox(
                             width: 4,
                           ),
                           Text(
                             time,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15),
+                            style: TextStyle(color: Colors.grey, fontSize: 13),
                             textAlign: TextAlign.left,
                           ),
                         ],
                       ),
                     ],
                   ),
-                )
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Container(
+                      height: 80,
+                      child: Image(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(newsImageUrl),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

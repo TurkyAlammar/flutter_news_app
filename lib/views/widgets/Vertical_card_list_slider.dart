@@ -6,7 +6,6 @@ class VerticalCardListSlider extends StatelessWidget {
   String? page;
   int index = 0;
 
-  //List<VerticalCard> VerticalCards;
   List<Map<String, String>> latestNews;
   @override
   Widget build(BuildContext context) {

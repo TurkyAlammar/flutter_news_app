@@ -17,7 +17,9 @@ class CategoriesButtonListSlider extends StatelessWidget {
               label: item, colr: Colors.black, font_color: Colors.white));
         } else {
           categoriesButtons.add(CategoriesButton(
-              label: item, colr: Colors.white, font_color: Colors.black));
+              label: item,
+              colr: Colors.grey.shade200,
+              font_color: Colors.grey.shade400));
         }
       }
 

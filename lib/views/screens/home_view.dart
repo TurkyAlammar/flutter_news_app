@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/views/screens/search_result_view.dart';
+import '../widgets/BottomNavigator.dart';
 import '../widgets/heading_widget.dart';
 import '../widgets/Vertical_card_list_slider.dart';
 import '../widgets/Horizontal_card_list_slider.dart';
@@ -47,53 +48,7 @@ class _HomeState extends State<Home> {
 
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: selected_item,
-          unselectedLabelStyle:
-              const TextStyle(color: Colors.black12, fontSize: 14),
-          backgroundColor: const Color(0xFF084A76),
-          fixedColor: Colors.black,
-          unselectedItemColor: Colors.black,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Explore',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.list),
-              label: 'List',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-          ],
-          onTap: (int i) {
-            setState(() {
-              selected_item = i;
-              print("selected_item$i");
-            });
-            if (selected_item == 0) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Home(category: category),
-                ),
-              );
-            } else if (selected_item == 2) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FavoriteArticle(),
-                ),
-              );
-            }
-          },
-        ),
+        bottomNavigationBar: ButtomNavigator(selected_item: selected_item),
         body: Visibility(
           replacement: Center(
             child: CircularProgressIndicator(),
@@ -179,7 +134,6 @@ class _HomeState extends State<Home> {
                     latestNews: Home_View_Model.latestNewsCards,
                     page: "homePage",
                   ),
-                  ButtonBar()
                 ],
               ),
             ),

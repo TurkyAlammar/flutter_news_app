@@ -15,8 +15,13 @@ class HorizontalCard extends StatelessWidget {
   String content;
   String source;
   String time;
+
   @override
   Widget build(BuildContext context) {
+    String sortTitle = newsTitle;
+    if (newsTitle.length > 75) {
+      sortTitle = "${newsTitle.substring(0, 74)} ...";
+    }
     return RawMaterialButton(
       onPressed: () {
         Navigator.push(
@@ -45,41 +50,39 @@ class HorizontalCard extends StatelessWidget {
         child: Container(
           color: Colors.white,
           width: 250,
-          height: 280,
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(30.0),
-                  child: Image(
-                    image: NetworkImage(newsImageUrl),
-                    height: 120,
-                    width: double.infinity,
-                  ),
+          height: 250,
+          padding: EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+                child: Image(
+                  image: NetworkImage(newsImageUrl),
+                  height: 120,
+                  width: double.infinity,
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  newsTitle,
-                  style: TextStyle(color: Colors.black),
-                  textAlign: TextAlign.left,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  newsCategory,
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15),
-                  textAlign: TextAlign.left,
-                ),
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                sortTitle,
+                style: TextStyle(color: Colors.black),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                newsCategory,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15),
+                textAlign: TextAlign.left,
+              ),
+            ],
           ),
         ),
       ),

@@ -22,7 +22,6 @@ class CategoriesButton extends StatelessWidget {
             padding: EdgeInsets.all(15),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(18.0),
-              side: BorderSide(color: Colors.black),
             ),
           ),
           onPressed: () => {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../view_models/favorite_article_view_model.dart';
+import '../widgets/BottomNavigator.dart';
 import '../widgets/Vertical_card_list_slider.dart';
 
 class FavoriteArticle extends StatefulWidget {
@@ -26,37 +27,8 @@ class _FavoriteArticleState extends State<FavoriteArticle> {
             color: Colors.black, //change your color here
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: selected_item,
-          unselectedLabelStyle:
-              const TextStyle(color: Colors.black12, fontSize: 14),
-          backgroundColor: const Color(0xFF084A76),
-          fixedColor: Colors.black,
-          unselectedItemColor: Colors.black,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Explore',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.list),
-              label: 'List',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-          ],
-          onTap: (int i) {
-            setState(() {
-              selected_item = i;
-              print("selected_item$i");
-            });
-          },
+        bottomNavigationBar: ButtomNavigator(
+          selected_item: 2,
         ),
         body: SingleChildScrollView(
           child: Padding(
