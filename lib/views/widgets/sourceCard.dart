@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 
 class SourceCard extends StatelessWidget {
-  const SourceCard({
-    super.key,
+  SourceCard({
+    required this.label,
   });
+  String label;
 
   @override
   Widget build(BuildContext context) {
+    String shortTitle = label;
+    if (label.length > 9) {
+      shortTitle = "${label.substring(0, 8)}...";
+    }
     return Container(
-      padding: EdgeInsets.only(left: 20, top: 12, right: 20, bottom: 12),
+      padding: EdgeInsets.only(left: 10, top: 12, right: 10, bottom: 12),
       height: 160,
       width: 110,
       decoration: BoxDecoration(
@@ -27,16 +32,20 @@ class SourceCard extends StatelessWidget {
               color: Colors.white,
             ),
             child: Image(
-              image: NetworkImage(
-                  "https://seeklogo.com/images/B/bbc-news-logo-8648ABD044-seeklogo.com.png"),
+              image:
+                  NetworkImage("https://newsapi.org/images/n-logo-border.png"),
             ),
           ),
           SizedBox(
             height: 10,
           ),
           Text(
-            "BBC News",
-            style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+            shortTitle,
+            textAlign: TextAlign.start,
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           SizedBox(
             height: 15,

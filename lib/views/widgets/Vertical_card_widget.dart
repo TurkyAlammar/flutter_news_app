@@ -9,7 +9,8 @@ class VerticalCard extends StatelessWidget {
       required this.newsTitle,
       required this.time,
       required this.content,
-      required this.source});
+      required this.source,
+      this.pageName});
 
   String newsImageUrl;
   String newsTitle;
@@ -17,6 +18,7 @@ class VerticalCard extends StatelessWidget {
   String time;
   String content;
   String source;
+  String? pageName;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,7 @@ class VerticalCard extends StatelessWidget {
               content: content,
               source: source,
               time: time,
+              pageName: pageName,
             ),
           ),
         );

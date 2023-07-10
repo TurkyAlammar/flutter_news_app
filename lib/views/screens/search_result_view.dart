@@ -11,15 +11,15 @@ class SearchResult extends StatefulWidget {
   String SearchText;
   @override
   State<SearchResult> createState() =>
-      _SearchResultState(category: category, SearchText: SearchText);
+      _SearchResultState(category: category, searchText: SearchText);
 }
 
 class _SearchResultState extends State<SearchResult> {
-  _SearchResultState({required this.category, required this.SearchText});
+  _SearchResultState({required this.category, required this.searchText});
   String category;
-  String SearchText;
+  String searchText;
 
-  var Search_View_Model = SearchRuesltViewModel();
+  var searchViewModel = SearchRuesltViewModel();
   bool isLoaded = false;
   TextEditingController _textEditingController = TextEditingController();
   //late Map<String, dynamic> post;
@@ -27,25 +27,21 @@ class _SearchResultState extends State<SearchResult> {
   initState() {
     super.initState();
     getData();
-    // ignore: avoid_print
   }
 
   void getData() async {
-    await Search_View_Model.getSearchResult(category, SearchText);
-    if (Search_View_Model.getSearchResult(category, SearchText) != null) {
+    await searchViewModel.getSearchResult(category, searchText);
+    if (searchViewModel.getSearchResult(category, searchText) != null) {
       setState(() {
         isLoaded = true;
       });
     }
   }
 
-  int selected_item = 1;
+  int selectedItem = 1;
 
   @override
   Widget build(BuildContext context) {
-    print("eeeeeee");
-    //print(Home_View_Model.latestNewsCards);
-
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -55,7 +51,7 @@ class _SearchResultState extends State<SearchResult> {
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex: selected_item,
+          currentIndex: selectedItem,
           unselectedLabelStyle:
               const TextStyle(color: Colors.black12, fontSize: 14),
           backgroundColor: const Color(0xFF084A76),
@@ -81,8 +77,7 @@ class _SearchResultState extends State<SearchResult> {
           ],
           onTap: (int i) {
             setState(() {
-              selected_item = i;
-              print("selected_item$i");
+              selectedItem = i;
             });
           },
         ),
@@ -120,7 +115,7 @@ class _SearchResultState extends State<SearchResult> {
                       },
                     ),
                     elevation: MaterialStateProperty.all(0.0),
-                    hintText: SearchText,
+                    hintText: searchText,
                     hintStyle: MaterialStateProperty.all(
                       const TextStyle(color: Colors.grey),
                     ),
@@ -133,17 +128,17 @@ class _SearchResultState extends State<SearchResult> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       heading_widget(
-                        label: Search_View_Model.SearchModel.Ruselt_title,
+                        label: searchViewModel.SearchModel.RuseltTitle,
                       ),
                       Text(
-                          "${Search_View_Model.SearchNewsCard.length} articles found")
+                          "${searchViewModel.searchNewsCard.length} articles found")
                     ],
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   VerticalCardListSlider(
-                      latestNews: Search_View_Model.SearchNewsCard),
+                      latestNews: searchViewModel.searchNewsCard),
                   ButtonBar()
                 ],
               ),

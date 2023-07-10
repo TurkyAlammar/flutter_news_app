@@ -22,6 +22,7 @@ class VerticalCardListSlider extends StatelessWidget {
           time: latestNews[i]['time'].toString(),
           content: latestNews[i]["content"].toString(),
           source: latestNews[i]["source"].toString(),
+          pageName: page,
         ));
       }
       return verticalCards;

@@ -1,4 +1,4 @@
-import 'Artical_details_model.dart';
+import 'artical_details_model.dart';
 
 class FavoriteArticleModel {
   FavoriteArticleModel(

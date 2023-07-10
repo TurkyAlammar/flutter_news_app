@@ -1,5 +1,3 @@
-import 'package:intl/intl.dart';
-
 class SearchRuesltModel {
   SearchRuesltModel(
       {this.newsImageUrl,
@@ -31,5 +29,5 @@ class SearchRuesltModel {
     };
   }
 
-  String Ruselt_title = "Results";
+  String RuseltTitle = "Results";
 }

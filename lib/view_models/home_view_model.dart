@@ -9,10 +9,9 @@ class HomeViewModel {
 
   Future<bool> getListOfLatestNewsCards(String category) async {
     String category_arg = category == "all" ? "" : "&category=$category";
-    List<HomeModel> latestNews =
-        await newsApiCall().getLatestPost(category_arg);
+    List<HomeModel> latestNews = await NewsApiCall().getPosts(category_arg);
 
-    if (latestNews != null || !latestNews.isEmpty) {
+    if (latestNews != null) {
       for (int i = 0; i < latestNews.length; i++) {
         if (latestNews[i] != null &&
             latestNews[i].newsImageUrl != null &&

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/views/screens/search_result_view.dart';
-import '../widgets/BottomNavigator.dart';
+import '../widgets/bottomNavigator.dart';
 import '../widgets/heading_widget.dart';
 import '../widgets/Vertical_card_list_slider.dart';
 import '../widgets/Horizontal_card_list_slider.dart';
-import '../widgets/Categories_button_list_slider.dart';
+import '../widgets/categories_button_list_slider.dart';
 import '../../view_models/home_view_model.dart';
-import 'favorite_article_view.dart';
 
 class Home extends StatefulWidget {
   Home({required this.category});
@@ -27,7 +26,6 @@ class _HomeState extends State<Home> {
   initState() {
     super.initState();
     getData();
-    // ignore: avoid_print
   }
 
   void getData() async {
@@ -43,9 +41,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    print("eeeeeee");
-    //print(Home_View_Model.latestNewsCards);
-
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: ButtomNavigator(selected_item: selected_item),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/models/Artical_details_model.dart';
 
 import '../../view_models/atrical_details_view_model.dart';
+import 'favorite_article_view.dart';
 
 class ArticalDetails extends StatefulWidget {
   ArticalDetails(
@@ -10,13 +10,15 @@ class ArticalDetails extends StatefulWidget {
       required this.newsTitle,
       required this.content,
       required this.source,
-      required this.time});
+      required this.time,
+      this.pageName});
   String newsImageUrl;
   String newsTitle;
   String newsCategory;
   String content;
   String source;
   String time;
+  String? pageName;
 
   @override
   State<ArticalDetails> createState() => _ArticalDetailsState(
@@ -25,7 +27,8 @@ class ArticalDetails extends StatefulWidget {
       newsTitle: newsTitle,
       content: content,
       source: source,
-      time: time);
+      time: time,
+      pageName: pageName);
 }
 
 class _ArticalDetailsState extends State<ArticalDetails> {
@@ -35,7 +38,8 @@ class _ArticalDetailsState extends State<ArticalDetails> {
       required this.newsTitle,
       required this.content,
       required this.source,
-      required this.time});
+      required this.time,
+      this.pageName});
 
   String newsImageUrl;
   String newsTitle;
@@ -43,35 +47,52 @@ class _ArticalDetailsState extends State<ArticalDetails> {
   String content;
   String source;
   String time;
+  String? pageName;
+  String menuLabel = "add the article to favorite list";
+  String menuValue = "add";
 
   var Artical_details_view_model = ArticalDetailsViewModel();
   @override
   Widget build(BuildContext context) {
+    if (pageName != null && pageName == "favPage") {
+      menuLabel = "delete the article from favorite list";
+      menuValue = "delete";
+    }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
+          color: Colors.black,
         ),
         actions: [
           PopupMenuButton(
-            // Callback that sets the selected popup menu item.
             onSelected: (item) {
               setState(() {
-                ArticalDetailsViewModel.setFavoriteListItems({
-                  "newsImageUrl": newsImageUrl,
-                  "newsTitle": newsTitle,
-                  "newsCategory": newsCategory,
-                  "content": content,
-                  "source": source,
-                  "time": time,
-                });
+                if (item == "add") {
+                  ArticalDetailsViewModel.setFavoriteListItems({
+                    "newsImageUrl": newsImageUrl,
+                    "newsTitle": newsTitle,
+                    "newsCategory": newsCategory,
+                    "content": content,
+                    "source": source,
+                    "time": time,
+                  });
+                } else if (item == "delete") {
+                  ArticalDetailsViewModel.deleteFromFavoriteListItems(
+                      newsTitle);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => FavoriteArticle(),
+                    ),
+                  );
+                }
               });
             },
             itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-              const PopupMenuItem(
-                value: "add",
-                child: Text('add the article to favorite list'),
+              PopupMenuItem(
+                value: menuValue,
+                child: Text(menuLabel),
               ),
             ],
           ),

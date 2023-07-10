@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../view_models/favorite_article_view_model.dart';
-import '../widgets/BottomNavigator.dart';
+import '../widgets/bottomNavigator.dart';
 import '../widgets/Vertical_card_list_slider.dart';
 
 class FavoriteArticle extends StatefulWidget {
@@ -64,7 +64,7 @@ class _FavoriteArticleState extends State<FavoriteArticle> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      "${FavoriteModelView.FavoriteModel.DetailsModel.getAllFavList(searchText).length} articles found",
+                      "${FavoriteModelView.favoriteModel.DetailsModel.getAllFavList(searchText).length} articles found",
                       textAlign: TextAlign.right,
                     ),
                   ],
@@ -73,8 +73,10 @@ class _FavoriteArticleState extends State<FavoriteArticle> {
                   height: 10,
                 ),
                 VerticalCardListSlider(
-                    latestNews: FavoriteModelView.FavoriteModel.DetailsModel
-                        .getAllFavList(searchText)),
+                  latestNews: FavoriteModelView.favoriteModel.DetailsModel
+                      .getAllFavList(searchText),
+                  page: "favPage",
+                ),
                 ButtonBar()
               ],
             ),

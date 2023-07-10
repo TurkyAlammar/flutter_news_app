@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/views/screens/explore_view.dart';
 import 'package:news_app/views/screens/favorite_article_view.dart';
 import 'package:news_app/views/screens/search_result_view.dart';
 import 'views/screens/home_view.dart';
@@ -29,6 +30,7 @@ class NewsApp extends StatelessWidget {
         "SearchResult": (context) =>
             SearchResult(category: "all", SearchText: ""),
         "FavoriteArticle": (context) => FavoriteArticle(),
+        "ExploreView": (context) => ExploreView(),
       },
     );
   }

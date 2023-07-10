@@ -15,8 +15,7 @@ class ButtomNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       currentIndex: selected_item,
-      unselectedLabelStyle:
-          const TextStyle(color: Colors.black12, fontSize: 14),
+      unselectedLabelStyle: const TextStyle(color: Colors.white, fontSize: 14),
       backgroundColor: const Color(0xFF084A76),
       fixedColor: Colors.black,
       unselectedItemColor: Colors.black,
@@ -40,7 +39,6 @@ class ButtomNavigator extends StatelessWidget {
       ],
       onTap: (int i) {
         selected_item = i;
-        print("selected_item$i");
 
         if (selected_item == 0) {
           Navigator.push(

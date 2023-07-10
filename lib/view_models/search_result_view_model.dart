@@ -5,16 +5,13 @@ import 'package:timeago/timeago.dart' as timeago;
 class SearchRuesltViewModel {
   var SearchModel = SearchRuesltModel();
 
-  List<Map<String, String>> SearchNewsCard = [];
+  List<Map<String, String>> searchNewsCard = [];
 
   Future<bool> getSearchResult(String category, String search_text) async {
-    String category_arg = category == "all" ? "" : "&category=$category";
-    String search_text_arg = search_text == "" ? "" : "q=$search_text";
-    print("hereee");
-    print(category);
-    print(search_text);
+    String categoryArg = category == "all" ? "" : "&category=$category";
+    String searchTextArg = search_text == "" ? "" : "q=$search_text";
     List<SearchRuesltModel> serchRuestList =
-        await newsApiCall().getSearchResults(category_arg, search_text_arg);
+        await NewsApiCall().getSearchResults(categoryArg, searchTextArg);
 
     if (serchRuestList != null || !serchRuestList.isEmpty) {
       for (int i = 0; i < serchRuestList.length; i++) {
@@ -22,7 +19,7 @@ class SearchRuesltViewModel {
             serchRuestList[i].newsImageUrl != null &&
             serchRuestList[i].content != null &&
             serchRuestList[i].source != null) {
-          SearchNewsCard.add({
+          searchNewsCard.add({
             "newsCategory": category,
             "newsTitle": serchRuestList[i].newsTitle!,
             "time": timeago
