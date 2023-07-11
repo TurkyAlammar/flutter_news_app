@@ -61,7 +61,7 @@ class VerticalCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        newsCategory,
+                        source,
                         style: TextStyle(color: Colors.grey, fontSize: 13),
                         textAlign: TextAlign.left,
                       ),

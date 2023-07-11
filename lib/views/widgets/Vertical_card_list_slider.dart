@@ -12,7 +12,7 @@ class VerticalCardListSlider extends StatelessWidget {
     List<VerticalCard> getListOfVerticalCards() {
       List<VerticalCard> verticalCards = [];
       if (page == "homePage") {
-        index = 4;
+        index = 5;
       }
       for (int i = index; i < latestNews.length; i++) {
         verticalCards.add(VerticalCard(

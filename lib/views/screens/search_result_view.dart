@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../view_models/search_result_view_model.dart';
 import '../widgets/Vertical_card_list_slider.dart';
+import '../widgets/bottomNavigator.dart';
 import '../widgets/heading_widget.dart';
 
 class SearchResult extends StatefulWidget {
@@ -49,37 +50,6 @@ class _SearchResultState extends State<SearchResult> {
           iconTheme: IconThemeData(
             color: Colors.black, //change your color here
           ),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: selectedItem,
-          unselectedLabelStyle:
-              const TextStyle(color: Colors.black12, fontSize: 14),
-          backgroundColor: const Color(0xFF084A76),
-          fixedColor: Colors.black,
-          unselectedItemColor: Colors.black,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Explore',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.list),
-              label: 'List',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-          ],
-          onTap: (int i) {
-            setState(() {
-              selectedItem = i;
-            });
-          },
         ),
         body: Visibility(
           replacement: Center(

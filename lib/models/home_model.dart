@@ -27,7 +27,7 @@ class HomeModel {
       "newsTitle": newsTitle,
       "publishedTime": publishedTime,
       "content": content,
-      "content": source,
+      "source": source,
     };
   }
 

@@ -75,11 +75,11 @@ class HorizontalCard extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                newsCategory,
+                source,
                 style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.grey,
                     fontWeight: FontWeight.bold,
-                    fontSize: 15),
+                    fontSize: 13),
                 textAlign: TextAlign.left,
               ),
             ],

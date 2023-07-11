@@ -1,16 +1,33 @@
 # news_app
 
-A news app brings you latest news.
+## In this application, which is built on the latest famous frameworks, which is flutter, and this application allows viewing the latest trending and circulating news, and it was used to bring these news through the application interface news api.
 
-## Getting Started
+## app screenshots
 
-This project is a starting point for a Flutter application.
+<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/home_screen.png" width="150"/> 
+<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/home_screen2.png" width="150"/> 
+<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/home_screen3.png" width="150"/> 
+<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/atrical_screen.png" width="150"/> 
+<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/atrical_screen2.png" width="150"/> 
+<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/atrical_screen3.png" width="150"/> 
+<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/explore_screen.png" width="150"/> 
+<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/search_result.png" width="150"/> 
+<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/favorite_list_screen.png" width="150"/> 
+<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/favorite_list_screen2.png" width="150"/> 
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## screes
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#### Home:
+##### This is the main page, which contains the latest and most common news.
+
+#### List:
+##### It contains a list of news that has been saved in the favorites list.
+
+#### Explore:
+##### It contains various sources of news.
+
+
+#### Profile:
+##### The user page, which shows the account details
+
