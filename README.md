@@ -4,15 +4,9 @@
 
 ## app screenshots
 
-<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/home_screen.png" width="150"/> 
-<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/home_screen2.png" width="150"/> 
-<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/home_screen3.png" width="150"/> 
-<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/atrical_screen.png" width="150"/> 
-<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/atrical_screen2.png" width="150"/> 
-<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/atrical_screen3.png" width="150"/> 
-<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/explore_screen.png" width="150"/> 
-<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/search_result.png" width="150"/> 
-<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/favorite_list_screen.png" width="150"/> 
+<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/home_screen.png" width="150"/> <img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/home_screen2.png" width="150"/> <img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/home_screen3.png" width="150"/> 
+<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/atrical_screen.png" width="150"/> <img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/atrical_screen2.png" width="150"/> <img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/atrical_screen3.png" width="150"/>
+<img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/explore_screen.png" width="150"/> <img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/search_result.png" width="150"/> <img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/favorite_list_screen.png" width="150"/>
 <img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/favorite_list_screen2.png" width="150"/> 
 
 
