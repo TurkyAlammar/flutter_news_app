@@ -10,7 +10,7 @@
 <img src="https://github.com/TurkyAlammar/flutter_news_app/blob/main/screenshots/favorite_list_screen2.png" width="150"/> 
 
 
-## screes
+## screens
 
 #### Home:
 ##### This is the main page, which contains the latest and most common news.
